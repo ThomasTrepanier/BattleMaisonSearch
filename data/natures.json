@@ -1,0 +1,102 @@
+{
+    "Hardy": {
+        "raises": "None",
+        "lowers": "None"
+    },
+    "Lonely": {
+        "raises": "Ack",
+        "lowers": "Def"
+    },
+    "Brave": {
+        "raises": "Ack",
+        "lowers": "Spd"
+    },
+    "Adamant": {
+        "raises": "Ack",
+        "lowers": "Sp.Ack"
+    },
+    "Naughty": {
+        "raises": "Ack",
+        "lowers": "Sp.Def"
+    },
+    "Bold": {
+        "raises": "Def",
+        "lowers": "Ack"
+    },
+    "Docile": {
+        "raises": "None",
+        "lowers": "None"
+    },
+    "Relaxed": {
+        "raises": "Def",
+        "lowers": "Spd"
+    },
+    "Impish": {
+        "raises": "Def",
+        "lowers": "Sp.Ack"
+    },
+    "Lax": {
+        "raises": "Def",
+        "lowers": "Sp.Def"
+    },
+    "Timid": {
+        "raises": "Spd",
+        "lowers": "Ack"
+    },
+    "Hasty": {
+        "raises": "Spd",
+        "lowers": "Def"
+    },
+    "Serious": {
+        "raises": "None",
+        "lowers": "None"
+    },
+    "Jolly": {
+        "raises": "Spd",
+        "lowers": "Sp.Ack"
+    },
+    "Naïve": {
+        "raises": "Spd",
+        "lowers": "Sp.Def"
+    },
+    "Modest": {
+        "raises": "Sp.Ack",
+        "lowers": "Ack"
+    },
+    "Mild": {
+        "raises": "Sp.Ack",
+        "lowers": "Def"
+    },
+    "Quiet": {
+        "raises": "Sp.Ack",
+        "lowers": "Spd"
+    },
+    "Bashful": {
+        "raises": "None",
+        "lowers": "None"
+    },
+    "Rash": {
+        "raises": "Sp.Ack",
+        "lowers": "Sp.Def"
+    },
+    "Calm": {
+        "raises": "Sp.Def",
+        "lowers": "Ack"
+    },
+    "Gentle": {
+        "raises": "Sp.Def",
+        "lowers": "Def"
+    },
+    "Sassy": {
+        "raises": "Sp.Def",
+        "lowers": "Spd"
+    },
+    "Careful": {
+        "raises": "Sp.Def",
+        "lowers": "Sp.Ack"
+    },
+    "Quirky": {
+        "raises": "None",
+        "lowers": "None"
+    }
+}
