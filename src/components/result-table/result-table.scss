@@ -1,0 +1,55 @@
+.result-table {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    margin: 10px 0px;
+
+    thead {
+        background-color: #e8e8e8; /* Lighter gray */
+    }
+
+    td,
+    th {
+        padding: 0.5em;
+        border-right: 1px dashed #aaa;
+        text-align: center;
+    }
+
+    tbody {
+        tr.search-results {
+            text-transform: capitalize;
+        }
+
+        tr:nth-child(odd) {
+            &.species-0 {
+                background-color: white; /* Medium gray color */
+            }
+
+            &.species-1 {
+                background-color: lightgreen; /* Medium gray color */
+            }
+
+            &.species-2 {
+                background-color: skyblue; /* Medium gray color */
+            }
+        }
+
+        tr:nth-child(even) {
+            &.species-0 {
+                background-color: #f0f0f0; /* Lighter gray */
+            }
+
+            &.species-1 {
+                background-color: darkseagreen; /* Lighter gray */
+            }
+
+            &.species-2 {
+                background-color: lightcyan; /* Lighter gray */
+            }
+        }
+
+        tr.no-results {
+            background-color: lightcoral;
+            color: white;
+        }
+    }
+}

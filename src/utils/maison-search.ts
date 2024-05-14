@@ -145,7 +145,7 @@ export function pokemonSearch(
                 errorType: 'badTrainer',
                 message: 'No trainer name was provided.',
             },
-            results: [],
+            result: { '': [] },
         };
     }
     /* Special case for the trainer O'Hare. I do this because the apostrophe in
@@ -159,7 +159,7 @@ export function pokemonSearch(
     console.log(trainerName);
 
     const pokemonName = pokemonValue.toLowerCase().trim();
-
+    const result: PokemonSets = {};
     console.log(pokemonName);
 
     /* SPECIAL CASE: Wildcard trainer: */
@@ -167,6 +167,7 @@ export function pokemonSearch(
         const allSets = pokemonSets[pokemonName];
         /* If the name isn't valid: */
         if (allSets === undefined) {
+            result[pokemonName] = [];
             return {
                 error: {
                     errorType: 'badPokemon',
@@ -175,23 +176,25 @@ export function pokemonSearch(
                         pokemonName +
                         ' in the Battle Maison.',
                 },
-                results: [],
+                result,
             };
         }
+        result[pokemonName] = allSets;
         /* Otherwise, return every set for the pokemon: */
-        return { results: allSets };
+        return { result };
     }
 
     /* Find the number of the team used by the parameter trainer */
     const teamNumber = trainerToTeam[trainerName];
     /* Bad Trainer error: */
     if (teamNumber === undefined) {
+        result[pokemonName] = [];
         return {
             error: {
                 errorType: 'badTrainer',
                 message: 'Trainer ' + trainerName + ' does not exist.',
             },
-            results: [],
+            result,
         };
     }
 
@@ -213,6 +216,7 @@ export function pokemonSearch(
     const setsForPokemon = teamContents[teamNumber][pokemonName];
     /* Bad Pokemon error: */
     if (setsForPokemon === undefined) {
+        result[pokemonName] = [];
         return {
             error: {
                 errorType: 'badPokemon',
@@ -223,7 +227,7 @@ export function pokemonSearch(
                     pokemonName +
                     '.',
             },
-            results: [],
+            result,
         };
     }
     /* Will contain the data about each pokemon which I found: */
@@ -237,8 +241,6 @@ export function pokemonSearch(
          * from the index values: */
         setData[i] = individualPokemonSetData[setsForPokemon[i] - 1];
     }
-
-    return {
-        results: setData,
-    };
+    result[pokemonName] = setData;
+    return { result };
 }

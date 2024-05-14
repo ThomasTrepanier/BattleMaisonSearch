@@ -23,7 +23,7 @@ interface PokemonAvailableSets {
 
 export interface PokemonSearchResults {
     error?: SearchError;
-    results: PokemonSet[];
+    result: PokemonSets;
 }
 
 export interface SearchError {

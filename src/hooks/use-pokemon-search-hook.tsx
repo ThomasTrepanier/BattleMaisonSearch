@@ -8,8 +8,11 @@ import {
 import { jsonToPokemonSets } from 'src/utils/json-mapper';
 import { pokemonSearch } from 'src/utils/maison-search';
 
-export function usePokemonSearch(trainerValue: string, pokemonValue: string) {
-    const [data, setData] = useState<PokemonSearchResults>({ results: [] });
+export function usePokemonSearch(
+    trainerValue: string,
+    pokemonValues: string[]
+) {
+    const [data, setData] = useState<PokemonSearchResults>({ result: {} });
     const [pokemonSets, setPokemonSets] = useState<PokemonSets>({});
     const [trainerToTeam, setTrainerToTeam] = useState<TrainerToTeam>({});
     const [teamContents, setTeamContents] = useState<TeamContents>([]);
@@ -32,17 +35,35 @@ export function usePokemonSearch(trainerValue: string, pokemonValue: string) {
     useEffect(() => {
         if (!pokemonSets || !trainerToTeam || !teamContents) return;
 
-        // Call your search function here and set data
-        const searchResult = pokemonSearch(
-            trainerValue,
-            pokemonValue,
-            pokemonSets,
-            trainerToTeam,
-            teamContents
+        const searchResults = pokemonValues.map((pokemonValue) =>
+            pokemonSearch(
+                trainerValue,
+                pokemonValue,
+                pokemonSets,
+                trainerToTeam,
+                teamContents
+            )
         );
-        setData(searchResult);
-        console.log('data', searchResult);
-    }, [trainerValue, pokemonValue, pokemonSets, trainerToTeam, teamContents]);
+        console.log(searchResults);
+
+        const results: PokemonSets = {};
+        searchResults.forEach((searchResult, i) => {
+            if (searchResult.error) {
+                results[pokemonValues[i]] = [];
+            } else {
+                results[pokemonValues[i]] =
+                    searchResult.result[pokemonValues[i]];
+            }
+        });
+
+        console.log(results);
+
+        const newData = {
+            result: results,
+        };
+        setData(newData);
+        console.log(newData);
+    }, [trainerValue, pokemonValues, pokemonSets, trainerToTeam, teamContents]);
 
     return data;
 }
