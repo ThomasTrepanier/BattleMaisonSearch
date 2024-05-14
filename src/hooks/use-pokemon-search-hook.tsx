@@ -44,7 +44,6 @@ export function usePokemonSearch(
                 teamContents
             )
         );
-        console.log(searchResults);
 
         const results: PokemonSets = {};
         searchResults.forEach((searchResult, i) => {
@@ -56,13 +55,10 @@ export function usePokemonSearch(
             }
         });
 
-        console.log(results);
-
         const newData = {
             result: results,
         };
         setData(newData);
-        console.log(newData);
     }, [trainerValue, pokemonValues, pokemonSets, trainerToTeam, teamContents]);
 
     return data;

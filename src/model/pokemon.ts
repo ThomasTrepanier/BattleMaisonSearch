@@ -30,3 +30,22 @@ export interface SearchError {
     errorType: string;
     message: string;
 }
+
+export interface Nature {
+    name: string;
+    increasedStat: string;
+    decreasedStat: string;
+}
+
+export interface NatureByName {
+    [nature: string]: Nature;
+}
+
+export interface Pokemon {
+    name: string;
+    number: number;
+}
+
+export interface PokemonByName {
+    [name: string]: Pokemon;
+}
