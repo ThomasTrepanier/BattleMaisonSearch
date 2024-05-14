@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-107337021-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- End Google Analytics -->
+
+  <meta charset="utf-8">
+
+  <title>Battle Maison Search Engine</title>
+  <meta name="description" content="Battle Maison Search">
+  <meta name="author" content="Daniel Shepsis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- General interface Styling: -->
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+  <!--Script for loading JSON resources: -->
+  <script src="js/LoadResources.js" async></script>
+  <!--Script for searching through a database of Battle Maison Trainers and Pokemon: -->
+  <script src="js/MaisonSearch.js" async></script>
+</head>
+
+<body>
+  <h1>
+    Battle Maison Search Engine
+    <a href="https://github.com/dshepsis/BattleMaisonSearch" class="small-link">Go to the GitHub Repo</a>
+  </h1>
+  <p>
+    This is a simple search engine for finding data about trainers and Pokemon in the XY and ORAS Battle Maisons.
+  </p>
+
+  <input type="text" id="trainer" placeholder="Trainer Name" />
+  <input type="text" id="pokemon" placeholder="Pokemon" />
+
+  <noscript>
+    <div id="noscriptContent">
+      <p>It seems you have JavaScript disabled in your browser. Sadly, this site requires JavaScript to be enabled in order to function correctly.</p>
+      <p>Here are some <a href="http://www.enable-javascript.com/" target="_blank">instructions on how to enable JavaScript in your web browser.</a></p>
+    </div>
+  </noscript>
+
+  <table id="output" style="display: none;" class="loading">
+    <tr><th>Loading!</th></tr>
+    <tr>
+      <td>Sorry, resources are still loading. Your query will be executed as soon as they are finished.</td>
+    </tr>
+  </table>
+
+  <p>
+    Enter "<b>*</b>" for the trainer name to get every set for the given Pokemon.
+  </p>
+  <p>
+    Click on a result to toggle a highlight!
+  </p>
+
+  <script>
+    /* This is here so that the loading message can be hidden by-default. This
+     * prevents users who have JavaScript disabled from seeing the loading
+     * message, which would be confusing, while still making sure it appears
+     * as soon as possible for users who do have JS enabled, but have slow
+     * internet. */
+    document.getElementById("output").style.display = "table";
+  </script>
+</body>
+</html>
