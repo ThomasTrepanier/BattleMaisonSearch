@@ -18,16 +18,16 @@ export function usePokemonSearch(
     const [teamContents, setTeamContents] = useState<TeamContents>([]);
 
     useEffect(() => {
-        fetch('/data/pokemonSets.json')
+        fetch('/BattleMaisonSearch/data/pokemonSets.json')
             .then((response) => response.json())
             .then((json) => jsonToPokemonSets(json))
             .then((data) => setPokemonSets(data));
 
-        fetch('/data/trainerToTeam.json')
+        fetch('/BattleMaisonSearch/data/trainerToTeam.json')
             .then((response) => response.json())
             .then((data) => setTrainerToTeam(data));
 
-        fetch('/data/teamContents.json')
+        fetch('/BattleMaisonSearch/data/teamContents.json')
             .then((response) => response.json())
             .then((data) => setTeamContents(data));
     }, []);

@@ -17,7 +17,7 @@ function ResultTableComponent({ ...props }: IProps) {
     const [pokemons, setPokemons] = useState<PokemonByName>({});
 
     useEffect(() => {
-        fetch('/data/natures.json')
+        fetch('/BattleMaisonSearch/data/natures.json')
             .then((response) => response.json())
             .then((json) => jsonToNatures(json))
             .then((natures) => {
@@ -28,7 +28,7 @@ function ResultTableComponent({ ...props }: IProps) {
                 setNatures(natureByName);
             });
 
-        fetch('/data/pokemon.json')
+        fetch('/BattleMaisonSearch/data/pokemon.json')
             .then((response) => response.json())
             .then((json) => jsonToPokemon(json))
             .then((pokemons) => {
