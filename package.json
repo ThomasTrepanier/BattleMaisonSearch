@@ -1,6 +1,6 @@
 {
     "name": "battlemaisonsearch",
-    "private": false,
+    "private": true,
     "homepage": "https://thomastrepanier.github.io/BattleMaisonSearch",
     "version": "1.0.0",
     "type": "module",
